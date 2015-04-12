@@ -5,6 +5,7 @@ These are two access plugins for Adobe Media Server that prevent non-authorized 
 
 ##### But doesn't Adobe already supply an authentication plugin for this very purpose?
 Yes they do, but it has two major flaws:
+
 1. It's very easily circumvented. It only checks those clients that connect with an FMLE user-agent string. Any client that supplies a different user-agent string (which, for example, Wirecast does by default) is simply let through without any authentication whatsoever.
 2. It only supports clients that implement Adobe's challenge-response authentication protocol, which many standard RTMP clients don't.
 
