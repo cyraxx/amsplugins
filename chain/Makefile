@@ -35,6 +35,7 @@ $(OutputDir)/%.o: $(SrcDir)/%.cpp
 access: $(AccessLib)
 
 install: access
+	mkdir -p $(InstallDir)
 	cp $(AccessLib) $(InstallDir)
 
 clean:
