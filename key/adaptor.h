@@ -7,14 +7,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <syslog.h>
-#include <vector>
 
 #include "IFCAccessAdaptor.h"
 
 class FCExport KeyAdaptor : public IFCAccessAdaptor
 {
 	IFCAccessContext* m_pCtx;
-	std::vector<std::string> m_publishingUserAgents;
 
 	public:
 		KeyAdaptor(IFCAccessContext* pCtx);
@@ -28,7 +26,9 @@ class FCExport KeyAdaptor : public IFCAccessAdaptor
 		virtual void onAccess(IFCAccess* pAccess);
 
 	private:
-		virtual const char* checkKey(const char* url);
+		virtual const std::string getKeyFromURI(const char* url);
+
+		virtual const char* checkKey(const std::string suppliedKey);
 };
 
 #endif	// !defined(Adaptor_h)
